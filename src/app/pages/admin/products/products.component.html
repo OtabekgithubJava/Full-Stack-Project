@@ -1,0 +1,114 @@
+<div class="row">
+    <div [ngClass]="isSidePanelVisible ? 'col-8' : 'col-12' ">
+        <div class="card">
+            <div class="card-header bg-primary">
+                <div class="row">
+                    <div class="col-6">
+                        Product List
+                    </div>
+                    <div class="col-6  text-end">
+                        <button class="btn btn-sm btn-success" (click)="openSidePanel()">New</button> 
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-3">
+                        <div class="card">
+                            <img class="card-img-top" src="https://i.pinimg.com/736x/fd/4e/81/fd4e81ea4a146a3a161b7705ca455828.jpg" alt="Card image">
+                            <div class="card-body">
+                              <h4 class="card-title">Leo Messi</h4>
+                              <p class="card-text">Some example text.</p>
+                              <a href="#" class="btn btn-primary">See Profile</a>
+                            </div>
+                          </div> 
+                    </div>
+                    <div class="col-3">
+                        <div class="card">
+                            <img class="card-img-top" src="https://img.allfootballapp.com/www/M00/3F/4A/720x-/-/-/rB8ApF0BLpuAa4sEAAHIs_c3hwA232.jpg.webp" alt="Card image">
+                            <div class="card-body">
+                              <h4 class="card-title">Cristiano Ronaldu</h4>
+                              <p class="card-text">Some example text.</p>
+                              <a href="#" class="btn btn-primary">See Profile</a>
+                            </div>
+                          </div> 
+                    </div>
+                    <div class="col-3">
+                        <div class="card">
+                            <img class="card-img-top" src="https://i.pinimg.com/736x/e3/f1/80/e3f180e42f096b2e923c647532bf35d0.jpg" alt="Card image">
+                            <div class="card-body">
+                              <h4 class="card-title">Neymar JR</h4>
+                              <p class="card-text">Some example text.</p>
+                              <a href="#" class="btn btn-primary">See Profile</a>
+                            </div>
+                          </div> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-4" *ngIf="isSidePanelVisible">
+        <div class="card">
+            <div class="card-header bg-primary">
+                <div class="row">
+                    <div class="col-6">
+                        New Product
+                    </div>
+                    <div class="col-6 text-end">
+                        <button class="btn btn-sm btn-success" (click)="closeSidePanel()">Close </button> 
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-6">
+                        <label for="skuInput">SKU</label>
+                        <input type="text" id="skuInput" [(ngModel)]="productObj.productSku" class="form-control">
+                    </div>
+                    <div class="col-6">
+                        <label for="nameInput">Name</label>
+                        <input type="text" id="nameInput" [(ngModel)]="productObj.productName" class="form-control">
+                    </div>
+                    <div class="col-6">
+                        <label for="shortNameInput">Short Name</label>
+                        <input type="text" id="shortNameInput" [(ngModel)]="productObj.productShortName" class="form-control">
+                    </div>
+                    <div class="col-6">
+                        <label for="priceInput">Price</label>
+                        <input type="text" id="priceInput" [(ngModel)]="productObj.productPrice" class="form-control">
+                    </div>
+                    <div class="col-6">
+                        <label for="categoryInput">Category</label>
+                        <select [(ngModel)]="productObj.categoryId" class="form-select">
+                            <option *ngFor="let cate of categoryList" [value]="cate.categoryId"> {{cate.categoryName}}</option>
+                        </select>
+                    </div>
+                    <div class="col-6">
+                        <label for="deliveryInput">Delivery Time span</label>
+                        <input type="text" id="deliveryInput" [(ngModel)]="productObj.deliveryTimeSpan" class="form-control">
+                    </div>
+                    <div class="col-6">
+                        <label for="imageUrlInput">Image URL</label>
+                    </div>
+                    <div class="col-6">
+                        <input type="text" id="imageUrlInput" [(ngModel)]="productObj.productImageUrl" class="form-control">
+                    </div>                                       
+                    <div class="col-6">
+                        <label for="descriptionInput">Product Description</label>
+                    </div>
+                    <div class="col-6">
+                        <textarea id="descriptionInput" [(ngModel)]="productObj.productDescription" class="form-control"></textarea>
+                    </div>                    
+                    <div class="row">
+                        <div class="col-6">
+                            <button class="btn btn-success">Reset</button>
+                            <button class="btn btn-success" (click)="onSave">Create Product</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
